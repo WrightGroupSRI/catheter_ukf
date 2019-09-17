@@ -1,5 +1,0 @@
-# requirements of catheter_ukf
-numba
-numpy
-numpy-quaternion
-scipy
