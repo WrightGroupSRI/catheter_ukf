@@ -111,10 +111,5 @@ class UKF(object):
 
     @staticmethod
     def _create_measurement_cov():
-        R = 0.0010 * numpy.block(
-            [
-                [1.0 * numpy.eye(3), 0.6 * numpy.eye(3)],
-                [0.6 * numpy.eye(3), 1.0 * numpy.eye(3)],
-            ]
-        )
+        R = 0.0010 * numpy.eye(6)
         return R
