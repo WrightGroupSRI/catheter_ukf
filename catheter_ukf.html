@@ -1,0 +1,931 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>catheter_ukf package &#8212; catheter_ukf  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'catheter_ukf';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="catheter_ukf" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">catheter_ukf  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">Catheter UKF</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">catheter_ukf</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">catheter_ukf package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/catheter_ukf.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>catheter_ukf package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.riemannian_ukf">catheter_ukf.riemannian_ukf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.predict"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.update"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.statespace">catheter_ukf.statespace module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Exp"><code class="docutils literal notranslate"><span class="pre">Exp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Log"><code class="docutils literal notranslate"><span class="pre">Log()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Rot"><code class="docutils literal notranslate"><span class="pre">Rot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States"><code class="docutils literal notranslate"><span class="pre">States</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.evolve_state"><code class="docutils literal notranslate"><span class="pre">States.evolve_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.global_to_local"><code class="docutils literal notranslate"><span class="pre">States.global_to_local()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_identity"><code class="docutils literal notranslate"><span class="pre">States.local_identity()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_to_global"><code class="docutils literal notranslate"><span class="pre">States.local_to_global()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_transition_cov"><code class="docutils literal notranslate"><span class="pre">States.local_transition_cov()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.observe_state"><code class="docutils literal notranslate"><span class="pre">States.observe_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.tip_from_state"><code class="docutils literal notranslate"><span class="pre">States.tip_from_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.evolve_state"><code class="docutils literal notranslate"><span class="pre">evolve_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.global_to_local"><code class="docutils literal notranslate"><span class="pre">global_to_local()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.local_to_global"><code class="docutils literal notranslate"><span class="pre">local_to_global()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.local_transition_cov"><code class="docutils literal notranslate"><span class="pre">local_transition_cov()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.observe_state"><code class="docutils literal notranslate"><span class="pre">observe_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_global_state"><code class="docutils literal notranslate"><span class="pre">pack_global_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_local_state"><code class="docutils literal notranslate"><span class="pre">pack_local_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_observation"><code class="docutils literal notranslate"><span class="pre">pack_observation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.tip_from_state"><code class="docutils literal notranslate"><span class="pre">tip_from_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.unpack_observation"><code class="docutils literal notranslate"><span class="pre">unpack_observation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.unpack_state"><code class="docutils literal notranslate"><span class="pre">unpack_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.ukf">catheter_ukf.ukf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF"><code class="docutils literal notranslate"><span class="pre">UKF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.estimate_initial_state"><code class="docutils literal notranslate"><span class="pre">UKF.estimate_initial_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.filter"><code class="docutils literal notranslate"><span class="pre">UKF.filter()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.predict"><code class="docutils literal notranslate"><span class="pre">UKF.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.tip_and_coils"><code class="docutils literal notranslate"><span class="pre">UKF.tip_and_coils()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.update"><code class="docutils literal notranslate"><span class="pre">UKF.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.unscented">catheter_ukf.unscented module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented"><code class="docutils literal notranslate"><span class="pre">Unscented</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented.sigmas_from_stats"><code class="docutils literal notranslate"><span class="pre">Unscented.sigmas_from_stats()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented.stats_from_sigmas"><code class="docutils literal notranslate"><span class="pre">Unscented.stats_from_sigmas()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.sigmas_from_stats"><code class="docutils literal notranslate"><span class="pre">sigmas_from_stats()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.stats_from_sigmas"><code class="docutils literal notranslate"><span class="pre">stats_from_sigmas()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="catheter-ukf-package">
+<h1>catheter_ukf package<a class="headerlink" href="#catheter-ukf-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-catheter_ukf.riemannian_ukf">
+<span id="catheter-ukf-riemannian-ukf-module"></span><h2>catheter_ukf.riemannian_ukf module<a class="headerlink" href="#module-catheter_ukf.riemannian_ukf" title="Link to this heading">#</a></h2>
+<p>This module implements the Kalman equations for a UKF on a riemannian
+manifold.</p>
+<dl>
+<dt>For reference, see:</dt><dd><dl class="simple">
+<dt>Unscented Kalman Filtering on Riemannian Manifolds</dt><dd><p>by</p>
+</dd>
+</dl>
+<p>Soren Hauberg + Prancois Lauze + Kim Steenstrup Pedersen</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="catheter_ukf.riemannian_ukf.RiemannianUKF">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catheter_ukf.riemannian_ukf.</span></span><span class="sig-name descname"><span class="pre">RiemannianUKF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">statespace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unscented</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.riemannian_ukf.RiemannianUKF" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keep track of parameters used for applying an unscented Kalman filter
+in a Riemannian setting.</p>
+<dl class="simple">
+<dt>These parameters are:</dt><dd><p>statespace: Knows how to manipulate states in local and global coords.
+unscented: Knows how to compute sigma points and covariances.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.riemannian_ukf.RiemannianUKF.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.predict" title="Link to this definition">#</a></dt>
+<dd><p>Perform the predict phase of the unscented Kalman filter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The a-priori state estimate.
+P: The a-priori error covariance, based at x.
+Q: The transition covariance, based at x.
+dt: The timestep.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.riemannian_ukf.RiemannianUKF.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.update" title="Link to this definition">#</a></dt>
+<dd><p>Perform the update phase of the unscented Kalman filter.</p>
+<p>Note that this makes the assumption that the <cite>observation space</cite> is a
+vector space.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance, based at x.
+R: The observation covariance.
+z: The observation.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The a-posteriori state estimate.
+P: The a-posteriori error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.riemannian_ukf.predict">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.riemannian_ukf.</span></span><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statespace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unscented</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.riemannian_ukf.predict" title="Link to this definition">#</a></dt>
+<dd><p>Perform the predict phase of the unscented Kalman filter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The a-priori state estimate.
+P: The a-priori error covariance, based at x.
+Q: The transition covariance, based at x.
+dt: The timestep.
+statespace: Knows how to manipulate states in local and global coords.
+unscented: Knows how to compute sigma points and covariances.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.riemannian_ukf.update">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.riemannian_ukf.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statespace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unscented</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.riemannian_ukf.update" title="Link to this definition">#</a></dt>
+<dd><p>Perform the update phase of the unscented Kalman filter.</p>
+<p>Note that this makes the assumption that the <cite>observation space</cite> is a
+vector space.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance, based at x.
+R: The observation covariance.
+z: The observation.
+statespace: Knows how to manipulate states in local and global coords.
+unscented: Knows how to compute sigma points and covariances.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The a-posteriori state estimate.
+P: The a-posteriori error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-catheter_ukf.statespace">
+<span id="catheter-ukf-statespace-module"></span><h2>catheter_ukf.statespace module<a class="headerlink" href="#module-catheter_ukf.statespace" title="Link to this heading">#</a></h2>
+<p>This module implements various state manipulation functions for the UKF.</p>
+<dl class="simple">
+<dt>States are represented by 3+3+3+3+3+3 = 18 parameters. These are:</dt><dd><p>x: In R3. The position of the midpoint between the coils.
+v: In R3. The velocity of x.
+a: In R3. The acceleration of x.
+q: In S2 (as a subset of R3). The direction from x to the catheter’s tip.
+w: In R2 (as a subset of R3). The (rotational) velocity of q.
+u: In R2 (as a subset of R3). The (rotational) acceleration of q.</p>
+</dd>
+</dl>
+<p>If q is a point on the unit sphere, then w and u are tangent to the sphere at
+q.</p>
+<p>Roll of the catheter is not represented.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.Exp">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">Exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.Exp" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.Log">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">Log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.Log" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.Rot">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">Rot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.Rot" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">States</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coil_distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_distance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keep track of parameters used for state transition and observation.</p>
+<dl class="simple">
+<dt>These parameters are:</dt><dd><p>coil_distance: The distance between the coils in mm.
+tip_distance: The distance from the tip to the tip-adjacent coil in mm.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.evolve_state">
+<span class="sig-name descname"><span class="pre">evolve_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.evolve_state" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the evolution of the given state after the given duration.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>s: The starting state.
+dt: The duration.</p>
+</dd>
+</dl>
+<p>Returns the evolved state.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.global_to_local">
+<span class="sig-name descname"><span class="pre">global_to_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_coordinate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.global_to_local" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.local_identity">
+<span class="sig-name descname"><span class="pre">local_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.local_identity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.local_to_global">
+<span class="sig-name descname"><span class="pre">local_to_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">global_base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_coordinate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.local_to_global" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.local_transition_cov">
+<span class="sig-name descname"><span class="pre">local_transition_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.local_transition_cov" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.observe_state">
+<span class="sig-name descname"><span class="pre">observe_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.observe_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.States.tip_from_state">
+<span class="sig-name descname"><span class="pre">tip_from_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.States.tip_from_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.evolve_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">evolve_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.evolve_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.global_to_local">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">global_to_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.global_to_local" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.local_to_global">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">local_to_global</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.local_to_global" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.local_transition_cov">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">local_transition_cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.local_transition_cov" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.observe_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">observe_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coil_offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.observe_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.pack_global_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">pack_global_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.pack_global_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.pack_local_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">pack_local_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.pack_local_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.pack_observation">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">pack_observation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.pack_observation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.tip_from_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">tip_from_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.tip_from_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.unpack_observation">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">unpack_observation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.unpack_observation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.statespace.unpack_state">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.statespace.</span></span><span class="sig-name descname"><span class="pre">unpack_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.statespace.unpack_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-catheter_ukf.ukf">
+<span id="catheter-ukf-ukf-module"></span><h2>catheter_ukf.ukf module<a class="headerlink" href="#module-catheter_ukf.ukf" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catheter_ukf.ukf.</span></span><span class="sig-name descname"><span class="pre">UKF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coil_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tip_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keeps track of the parameters required to use the unscented Kalman
+filter designed for tracking our catheter.</p>
+<dl>
+<dt>Args:</dt><dd><p>coil_distance: The distance between the coils in mm.
+tip_distance: The distance from the tip to the tip-adjacent coil in mm.
+h: Determines the spread in the sigma points. If the filter seems to</p>
+<blockquote>
+<div><p>diverge consider reducing this value.</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF.estimate_initial_state">
+<span class="sig-name descname"><span class="pre">estimate_initial_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prox_coord</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF.estimate_initial_state" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF.filter">
+<span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF.filter" title="Link to this definition">#</a></dt>
+<dd><p>Perform a combination predict/update step using this unscented
+Kalman filter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The a-priori state estimate.
+P: The a-priori error covariance, based at x.
+z: The observation.
+dt: The timestep.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The a-posteriori state estimate.
+P: The a-posteriori error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF.predict" title="Link to this definition">#</a></dt>
+<dd><p>Perform the predict phase of the unscented Kalman filter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The a-priori state estimate.
+P: The a-priori error covariance, based at x.
+dt: The timestep.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF.tip_and_coils">
+<span class="sig-name descname"><span class="pre">tip_and_coils</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF.tip_and_coils" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.ukf.UKF.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.ukf.UKF.update" title="Link to this definition">#</a></dt>
+<dd><p>Perform the update phase of the unscented Kalman filter.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The predicted state estimate.
+P: The predicted error covariance, based at x.
+z: The observation.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The a-posteriori state estimate.
+P: The a-posteriori error covariance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-catheter_ukf.unscented">
+<span id="catheter-ukf-unscented-module"></span><h2>catheter_ukf.unscented module<a class="headerlink" href="#module-catheter_ukf.unscented" title="Link to this heading">#</a></h2>
+<p>This module implements the <cite>unscented transform</cite> required for the UKF.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="catheter_ukf.unscented.Unscented">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">catheter_ukf.unscented.</span></span><span class="sig-name descname"><span class="pre">Unscented</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.unscented.Unscented" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keep track of parameters required for the unscented transform.</p>
+<dl class="simple">
+<dt>These parameters are:</dt><dd><p>h: Determines the spread in the sigma points.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.unscented.Unscented.sigmas_from_stats">
+<span class="sig-name descname"><span class="pre">sigmas_from_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.unscented.Unscented.sigmas_from_stats" title="Link to this definition">#</a></dt>
+<dd><p>Compute sigma points and weights from the given parameters.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The mean of the sigma points.
+P: The covariance of the sigma points.</p>
+</dd>
+<dt>Returns:</dt><dd><p>sigmas: The calculated sigma points.
+weights: The calculated weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catheter_ukf.unscented.Unscented.stats_from_sigmas">
+<span class="sig-name descname"><span class="pre">stats_from_sigmas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigmas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.unscented.Unscented.stats_from_sigmas" title="Link to this definition">#</a></dt>
+<dd><p>Compute the mean and covariance of the given sigma points.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sigmas: The sigma points.
+weights: The weights.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The weighted mean of the sigma points.
+P: The weighted covariance of the sigma points.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.unscented.sigmas_from_stats">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.unscented.</span></span><span class="sig-name descname"><span class="pre">sigmas_from_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.unscented.sigmas_from_stats" title="Link to this definition">#</a></dt>
+<dd><p>Compute sigma points and weights from the given parameters.</p>
+<p>Compute a set of sigma points and weights representing the given mean
+and covariance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>x: The mean of the sigma points.
+P: The covariance of the sigma points.
+h: The <cite>spread</cite> of the sigma points. Controls distance between sigmas.</p>
+</dd>
+<dt>Returns:</dt><dd><p>sigmas: The calculated sigma points.
+weights: The calculated weights.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="catheter_ukf.unscented.stats_from_sigmas">
+<span class="sig-prename descclassname"><span class="pre">catheter_ukf.unscented.</span></span><span class="sig-name descname"><span class="pre">stats_from_sigmas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sigmas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#catheter_ukf.unscented.stats_from_sigmas" title="Link to this definition">#</a></dt>
+<dd><p>Compute the mean and covariance of the given sigma points.</p>
+<p>Compute the mean and covariance represented by a set of sigma points
+and weights.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sigmas: The sigma points.
+weights: The weights.</p>
+</dd>
+<dt>Returns:</dt><dd><p>x: The weighted mean of the sigma points.
+P: The weighted covariance of the sigma points.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-catheter_ukf">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-catheter_ukf" title="Link to this heading">#</a></h2>
+<p>This module contains sub-modules related to applying a UKF to our catheter
+tracking problem.</p>
+<p>Most of the stuffs found within are “implementation details”. For users
+the most relevant things are exported here: <cite>UKF</cite>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">catheter_ukf</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.riemannian_ukf">catheter_ukf.riemannian_ukf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.predict"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.RiemannianUKF.update"><code class="docutils literal notranslate"><span class="pre">RiemannianUKF.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.riemannian_ukf.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.statespace">catheter_ukf.statespace module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Exp"><code class="docutils literal notranslate"><span class="pre">Exp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Log"><code class="docutils literal notranslate"><span class="pre">Log()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.Rot"><code class="docutils literal notranslate"><span class="pre">Rot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States"><code class="docutils literal notranslate"><span class="pre">States</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.evolve_state"><code class="docutils literal notranslate"><span class="pre">States.evolve_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.global_to_local"><code class="docutils literal notranslate"><span class="pre">States.global_to_local()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_identity"><code class="docutils literal notranslate"><span class="pre">States.local_identity()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_to_global"><code class="docutils literal notranslate"><span class="pre">States.local_to_global()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.local_transition_cov"><code class="docutils literal notranslate"><span class="pre">States.local_transition_cov()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.observe_state"><code class="docutils literal notranslate"><span class="pre">States.observe_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.States.tip_from_state"><code class="docutils literal notranslate"><span class="pre">States.tip_from_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.evolve_state"><code class="docutils literal notranslate"><span class="pre">evolve_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.global_to_local"><code class="docutils literal notranslate"><span class="pre">global_to_local()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.local_to_global"><code class="docutils literal notranslate"><span class="pre">local_to_global()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.local_transition_cov"><code class="docutils literal notranslate"><span class="pre">local_transition_cov()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.observe_state"><code class="docutils literal notranslate"><span class="pre">observe_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_global_state"><code class="docutils literal notranslate"><span class="pre">pack_global_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_local_state"><code class="docutils literal notranslate"><span class="pre">pack_local_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.pack_observation"><code class="docutils literal notranslate"><span class="pre">pack_observation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.tip_from_state"><code class="docutils literal notranslate"><span class="pre">tip_from_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.unpack_observation"><code class="docutils literal notranslate"><span class="pre">unpack_observation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.statespace.unpack_state"><code class="docutils literal notranslate"><span class="pre">unpack_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.ukf">catheter_ukf.ukf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF"><code class="docutils literal notranslate"><span class="pre">UKF</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.estimate_initial_state"><code class="docutils literal notranslate"><span class="pre">UKF.estimate_initial_state()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.filter"><code class="docutils literal notranslate"><span class="pre">UKF.filter()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.predict"><code class="docutils literal notranslate"><span class="pre">UKF.predict()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.tip_and_coils"><code class="docutils literal notranslate"><span class="pre">UKF.tip_and_coils()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.ukf.UKF.update"><code class="docutils literal notranslate"><span class="pre">UKF.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf.unscented">catheter_ukf.unscented module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented"><code class="docutils literal notranslate"><span class="pre">Unscented</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented.sigmas_from_stats"><code class="docutils literal notranslate"><span class="pre">Unscented.sigmas_from_stats()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.Unscented.stats_from_sigmas"><code class="docutils literal notranslate"><span class="pre">Unscented.stats_from_sigmas()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.sigmas_from_stats"><code class="docutils literal notranslate"><span class="pre">sigmas_from_stats()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catheter_ukf.unscented.stats_from_sigmas"><code class="docutils literal notranslate"><span class="pre">stats_from_sigmas()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-catheter_ukf">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sunnybrook Research Institute
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Sunnybrook Research Institute.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
